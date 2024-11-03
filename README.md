@@ -91,6 +91,6 @@
 ## Vínculos al Código Fuente
 <a id="vinculos-al-codigo-fuente"></a>
 
-- [Implementación del algoritmo en C.](scripts/hanoiC.c)
-- [Implementación del algoritmo en ensamblador.](scripts/hanoiAssembly.asm)
+- [Implementación del algoritmo en C.](https://github.com/rodrigoMartinDelCampo/MdC_ProductoInformativoIndividual/blob/main/scripts/hanoiC.asm) 
+- [Implementación del algoritmo en ensamblador.](https://github.com/rodrigoMartinDelCampo/MdC_ProductoInformativoIndividual/blob/main/scripts/hanoiAssembly.asm)
 
