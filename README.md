@@ -24,8 +24,7 @@
    - [1.1 Qué es el problema de las Torres de Hanoi y cómo se pueden implementar algoritmos para su solución](#que-es-el-problema-de-las-torres-de-hanoi-y-como-se-pueden-implementar-algoritmos-para-su-solucion)
    - [1.2 Arquitectura RISC-V y su ISA (características, etc.)](#arquitectura-risc-v-y-su-isa-caracteristicas-etc)
 4. [Capítulo 2](#capitulo-2)
-   - [Implementación de algoritmo de solución de las Torres de Hanoi en lenguaje ensamblador para arquitectura RISC-V](#implementacion-de-algoritmo-de-solucion-de-las-torres-de-hanoi-en-lenguaje-ensamblador-para-arquitectura-risc-v)
-      - (Proceso de investigación, fuentes, cómo es una implementación recursiva, por qué vamos a hacer una implementación recursiva para su solución, etc.)
+   - [Implementación de algoritmo de solución de las Torres de Hanoi en lenguaje ensamblador para arquitectura RISC-V (Proceso de investigación, fuentes, cómo es una implementación recursiva, por qué vamos a hacer una implementación recursiva para su solución, etc.)](#implementacion-de-algoritmo-de-solucion-de-las-torres-de-hanoi-en-lenguaje-ensamblador-para-arquitectura-risc-v)
 5. [Capítulo 3](#capitulo-3)
    - [Análisis y breakdown del código generado y comparación con código en C](#analisis-y-breakdown-del-codigo-generado-y-comparacion-con-codigo-en-c)
 6. [Capítulo 4](#capitulo-4)
@@ -39,7 +38,17 @@
 
 ## Introducción
 <a id="introduccion"></a>
-(Tu contenido aquí)
+
+En este trabajo, abordaré la pregunta: **¿cómo se puede implementar el algoritmo de las Torres de Hanoi de manera recursiva en un lenguaje ensamblador de arquitectura RISC-V y hacerlo lo más eficaz posible?** A lo largo del desarrollo, mencionaré diversas fuentes y consideraciones a tener en cuenta al realizar una implementación de este tipo.
+
+Mi investigación surgió de la necesidad de llevar a cabo una implementación para una práctica de mi clase de **Organización y Arquitectura de Computadoras**. Sin embargo, encontré que es difícil acceder a información precisa que ofrezca una guía clara sobre cómo realizar esta implementación. En línea, no he encontrado una solución específica con la **ISA** de arquitectura **RISC-V** en ninguna de las principales plataformas para desarrolladores, como GeeksforGeeks o GitHub.
+
+A pesar de los avances significativos en inteligencia artificial y en herramientas como ChatGPT y Copilot, hasta ahora, estas aplicaciones no han logrado generar un código funcional que cumpla con los requisitos necesarios para una **implementación óptima del algoritmo**.
+
+Este trabajo pretende cubrir, aunque de manera superficial, las bases y consideraciones necesarias para implementar el algoritmo de las Torres de Hanoi en ensamblador **RISC-V**. Además, proporcionaré acceso a una solución optimizada, explicada y cuyos resultados cuantitativos serán analizados para respaldar el resultado óptimo al que he llegado.
+
+**Palabras clave:** **ISA**, **lenguaje ensamblador**, **arquitectura de computadora**, **organización de computadora**, **optimización de código**, **recursividad**.
+
 
 ## Glosario
 <a id="glosario"></a>
@@ -91,6 +100,6 @@
 ## Vínculos al Código Fuente
 <a id="vinculos-al-codigo-fuente"></a>
 
-- [Implementación del algoritmo en C.](https://github.com/rodrigoMartinDelCampo/MdC_ProductoInformativoIndividual/blob/main/scripts/hanoiC.asm) 
+- [Implementación del algoritmo en C.](https://github.com/rodrigoMartinDelCampo/MdC_ProductoInformativoIndividual/blob/main/scripts/hanoiC.c) 
 - [Implementación del algoritmo en ensamblador.](https://github.com/rodrigoMartinDelCampo/MdC_ProductoInformativoIndividual/blob/main/scripts/hanoiAssembly.asm)
 
