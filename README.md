@@ -52,7 +52,18 @@ Este trabajo pretende cubrir, aunque de manera superficial, las bases y consider
 <a id="glosario"></a>
 
 ## Glosario
-(Tu contenido aquí)
+
+**ISA (Arquitectura del Conjunto de Instrucciones):** El ISA define el conjunto de instrucciones y operaciones que una CPU puede realizar. Es el puente entre el hardware y el software, proporcionando las instrucciones que la máquina debe ejecutar para procesar tareas específicas. Incluye instrucciones aritméticas, de control y de manipulación de datos. (Wikipedia - Instruction Set Architecture)
+
+**Lenguaje Ensamblador:** Es un lenguaje de programación de bajo nivel que utiliza instrucciones simbólicas, fáciles de recordar, para controlar directamente el hardware de una computadora. A diferencia de los lenguajes de alto nivel, el ensamblador permite a los programadores trabajar de cerca con la arquitectura de la máquina, proporcionando control detallado sobre la CPU y la memoria. (Britannica - Assembly Language)
+
+**Arquitectura de Computadora:** Se refiere a los atributos visibles para un programador que impactan el comportamiento lógico de un sistema informático, como el conjunto de instrucciones, la organización del almacenamiento y los tipos de datos. La arquitectura de computadoras define cómo el sistema de hardware y el software interactúan para ejecutar tareas específicas. (Britannica - Computer Architecture)
+
+**Organización de Computadora:** Se refiere a la estructura interna de la computadora, incluyendo sus componentes físicos como la CPU, la memoria y los dispositivos de entrada/salida, y cómo estos interactúan. Aunque está relacionada con la arquitectura, la organización se enfoca más en la implementación y el diseño físico del sistema. (Britannica - Computer Organization)
+
+**Optimización de Código:** Es el proceso de mejorar un programa para reducir su consumo de recursos (como tiempo de ejecución o uso de memoria) y mejorar su eficiencia general. Este proceso implica técnicas como la eliminación de redundancias, la reestructuración del código y el uso eficiente de recursos de hardware. (Wikipedia - Code Optimization)
+
+**Recursividad:** Es un método en programación donde una función se llama a sí misma para resolver un problema, dividiéndolo en subproblemas más pequeños hasta llegar a un caso base. Es especialmente útil para problemas que pueden descomponerse en pasos repetitivos, como el cálculo factorial o la resolución del problema de la torre de Hanoi. (Britannica - Recursion)
 
 <a id="capitulo-1"></a>
 
@@ -61,7 +72,20 @@ Este trabajo pretende cubrir, aunque de manera superficial, las bases y consider
 <a id="que-es-el-problema-de-las-torres-de-hanoi-y-como-se-pueden-implementar-algoritmos-para-su-solucion"></a>
 
 ### 1.1 Qué es el problema de las Torres de Hanoi y cómo se pueden implementar algoritmos para su solución
-(Tu contenido aquí)
+### ¿Qué es la Torre de Hanoi?
+
+La **Torre de Hanoi** es un rompecabezas clásico que consta de tres estacas y una serie de discos de diferentes tamaños que pueden colocarse en estas estacas. Como lo explican Mataix-Cols y Bartres-Faz:
+
+> "El rompecabezas de la Torre de Hanoi consta de tres estacas y un número de discos de tamaños graduados que encajan en las estacas. Los discos se disponen inicialmente en la estaca de inicio más a la izquierda y se requiere que los participantes muevan los discos desde la estaca de inicio y los rearmen en el orden original en la estaca más a la derecha, respetando las siguientes dos reglas: (a) Solo se puede mover un disco a la vez, y (b) no se puede colocar un disco más grande sobre un disco más pequeño. Se puede usar cualquier número de discos; el número mínimo de movimientos para una solución es \(2^n - 1\), donde \(n\) es el número de discos."  
+> — *Mataix-Cols, D., & Bartres-Faz, D. (2002). Is the Use of the Wooden and Computerized Versions of the Tower of Hanoi Puzzle Equivalent? Applied Neuropsychology, 9(2), 117–120.*  
+> [https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8](https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8)
+
+Tomando en cuenta que lo que describen Mataix-Cols y Bartres-Faz, es en escencia un algoritmo, a continuación se muestra una imagen que facilita la comprensión de éste así como de sus pasos y restricciones para un caso en el que se trabaja con 3 discos:
+
+![foto-hanoi](assets/img/tower-of-hanoi.png)
+
+*Program for Tower of Hanoi Algorithm. GeeksforGeeks.*
+
 
 <a id="arquitectura-risc-v-y-su-isa-caracteristicas-etc"></a>
 
@@ -390,7 +414,10 @@ endCode:
 <a id="bibliografia"></a>
 
 ## Bibliografía
-(Tu contenido aquí)
+
+> - *Mataix-Cols, D., & Bartres-Faz, D. (2002). Is the Use of the Wooden and Computerized Versions of the Tower of Hanoi Puzzle Equivalent? Applied Neuropsychology, 9(2), 117–120.* [https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8](https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8)
+> 
+> - GeeksforGeeks. (2024, 9 mayo). *Program for Tower of Hanoi Algorithm.* GeeksforGeeks. [https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)
 
 <a id="vinculos-al-codigo-fuente"></a>
 
