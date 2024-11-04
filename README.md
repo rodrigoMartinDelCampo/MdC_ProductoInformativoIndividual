@@ -115,7 +115,7 @@ Ambos enfoques tienen sus ventajas: el recursivo es conciso y claro, ideal para 
 
 <a id="arquitectura-risc-v-y-su-isa-caracteristicas-etc"></a>
 
-### 1.2 Arquitectura RISC-V y su ISA (características, etc.)
+### 1.2 Arquitectura RISC-V y su ISA
 
 ### Descripción de RISC-V
 
@@ -186,7 +186,38 @@ RISC-V se beneficia de estos tipos de instrucciones, que simplifican el diseño 
 <a id="implementacion-de-algoritmo-de-solucion-de-las-torres-de-hanoi-en-lenguaje-ensamblador-para-arquitectura-risc-v"></a>
 
 ### Implementación de algoritmo de solución de las Torres de Hanoi en lenguaje ensamblador para arquitectura RISC-V
-(Tu contenido aquí sobre el proceso de investigación, fuentes, cómo es una implementación recursiva y por qué vamos a usarla para la solución)
+
+### Proceso de Investigación y Fuentes
+
+Para desarrollar este proyecto, me basé en la información obtenida de diversos recursos, entre ellos el libro *Modern Computer Architecture and Organization: Learn X86, ARM, and RISC-V Architectures and the Design of Smartphones, PCs, and Cloud Servers*, específicamente en el capítulo 8, titulado "Performance Enhancing Techniques". Este capítulo me proporcionó una comprensión fundamental del `instruction pipelining`, una técnica que permite optimizar el flujo de instrucciones al asegurar que cada instrucción sea ejecutada de manera eficiente en la arquitectura RISC-V.
+
+Con el objetivo de optimizar el desempeño del algoritmo, seleccioné cuidadosamente cada instrucción, minimizando el uso de `sw` y `lw` en operaciones relacionadas con el acceso al stack. Esto permitió reducir la cantidad de operaciones de carga y almacenamiento en el stack, optimizando así el uso de los registros y mejorando el rendimiento general.
+
+### Implementación Recursiva del Algoritmo
+
+La implementación recursiva fue elegida para resolver el problema de las Torres de Hanoi, ya que proporciona una estructura clara y modular que permite descomponer el problema en subproblemas más manejables. Cada llamada recursiva realiza los movimientos necesarios para trasladar un conjunto de discos a la torre de destino, utilizando una torre auxiliar. Este enfoque recursivo es eficiente y adecuado para la arquitectura RISC-V, ya que aprovecha la capacidad de la pila para almacenar el estado de cada subproblema.
+
+Para mi implementación en lenguaje ensamblador RISC-V estructuré de la siguiente manera:
+
+1. **Definición de Variables**: Definí `n` como el número de discos y los registros `s1`, `s2`, y `s3` como apuntadores a las tres torres en la memoria.
+   
+2. **Inicialización de Torres**: Usando un ciclo `for`, asigné los discos a la primera torre, estableciendo la base para la recursión. La primera torre se establece en la posición inicial de la memoria, mientras que las otras dos torres quedan vacías.
+
+3. **Recursión en el Ensamblador**: La recursión se implementa llamando a la función `towerOfHanoi` desde el `main`. En cada llamada:
+   - Se realiza un *swap* de los registros de las torres para reflejar el movimiento de discos entre torres.
+   - La llamada recursiva mueve `n-1` discos de la torre de origen a la torre auxiliar.
+   - Se utiliza una instrucción `jal` para la recursión, y el stack se administra mediante `sw` y `lw`, almacenando y recuperando el registro de retorno `ra` y el disco actual (`s0`).
+
+4. **Caso Base**: Cuando solo queda un disco, el algoritmo lo mueve directamente de la torre de origen a la torre de destino. Esto se implementa en el bloque `baseCase`, que realiza el movimiento final y retorna sin hacer una llamada recursiva.
+
+### Optimización y Pipelining
+
+Durante el desarrollo del código, me aseguré de implementar las técnicas de `instruction pipelining` recomendadas en la bibliografía, lo que permite que las instrucciones sean ejecutadas de manera continua sin interrupciones innecesarias. Esto fue fundamental en la sección de carga y almacenamiento de registros (`sw` y `lw`) para minimizar el tiempo de acceso al stack.
+
+También implementé optimizaciones en las instrucciones de control de flujo (`jal` y `jalr`), reduciendo la cantidad de saltos y ajustando el tamaño de los desplazamientos en memoria. Esto permitió mejorar la eficiencia general del código, lo cual es especialmente importante en un entorno de lenguaje ensamblador donde cada instrucción cuenta.
+
+En resumen, esta implementación del algoritmo de las Torres de Hanoi en lenguaje ensamblador RISC-V no solo cumple con la funcionalidad esperada, sino que también es altamente eficiente en cuanto al uso de instrucciones y recursos. Este enfoque recursivo en ensamblador aprovecha las características de la arquitectura RISC-V, optimizando el rendimiento y minimizando el tiempo de ejecución y el uso de memoria.
+
 
 <a id="capitulo-3"></a>
 
