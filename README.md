@@ -83,7 +83,7 @@ Tomando en cuenta que lo que describen Mataix-Cols y Bartres-Faz, es en escencia
 
 ![foto-hanoi](assets/img/tower-of-hanoi.png)
 
-*Program for Tower of Hanoi Algorithm. GeeksforGeeks.*
+*Fuente de la imagen: Program for Tower of Hanoi Algorithm. GeeksforGeeks.*
 
 ### Aplicaciones de la Torre de Hanoi
 
@@ -109,7 +109,7 @@ Atkinson (1982) menciona que, aunque el problema se suele enseñar con una soluc
 | **Aplicaciones en Enseñanza** | Útil para enseñar el concepto de recursión en programación. | Útil para mostrar alternativas a la recursión en algoritmos de solución. |
 | **Implementación Típica**     | Implementación directa en lenguajes que soportan recursión. | Requiere una lógica más elaborada de control de movimientos. |
 
-Ambos enfoques tienen sus ventajas: el recursivo es conciso y claro, ideal para aprender recursión, mientras que el iterativo optimiza el uso de memoria y puede ser más adecuado para valores altos de \( n \). Para este informe como ya he mencionado, desarrollaré la solución recursiva del problema. A partir de estos conceptos y del algoritmo descrito por Mataix-Cols desarrollaré el código necesario en lenguaje ensamblador de arquitectura RISC-V.
+Ambos enfoques tienen sus ventajas: el recursivo es conciso y claro, ideal para aprender recursión, mientras que el iterativo optimiza el uso de memoria y puede ser más adecuado para valores altos de \( n \). Para este informe, y como ya he mencionado, desarrollaré la solución recursiva del problema. A partir de estos conceptos y del algoritmo descrito por Mataix-Cols desarrollaré el código necesario en lenguaje ensamblador de arquitectura RISC-V.
 
 
 
@@ -496,7 +496,15 @@ endCode:
 <a id="por-que-la-implementacion-del-algoritmo-es-la-ideal"></a>
 
 ### Por qué la implementación del algoritmo es la ideal
-(Tu contenido aquí)
+
+En base a los resultados numéricos obtenidos, junto con la investigación realizada y la comprensión adquirida a través de las clases y diversos recursos, puedo concluir que la implementación alcanzada para resolver el problema de las Torres de Hanoi de manera recursiva en lenguaje ensamblador RISC-V es eficiente y funcional. La mayor parte de la información consultada fue obtenida en la biblioteca de ITESO, en su colección de revistas y libros digitales, los cuales fueron fundamentales para profundizar en temas de organización y arquitectura de computadoras.
+
+Esta solución no solo permite alcanzar el resultado esperado en términos de funcionalidad del código, sino que también destaca en cuanto a eficiencia. Como analizo en el capítulo 4 del informe, en el contexto de un algoritmo recursivo en ensamblador, esta implementación optimiza la cantidad de instrucciones ejecutadas, lo cual se traduce en un consumo reducido de tiempo y recursos. Esta eficiencia se refleja en un rendimiento que supera el promedio de otros resultados observados en mi curso, gracias a un manejo adecuado de la pila para almacenar y recuperar los valores de los discos y las posiciones durante cada llamada recursiva.
+
+Además, el uso de instrucciones específicas de RISC-V (tipos I, J, B, U, R, y S) ha permitido una estructuración clara y simplificada del flujo de operaciones. Las características de este conjunto de instrucciones facilitan el control de las operaciones aritméticas, la manipulación de registros y el control de flujo, optimizando el rendimiento en cada etapa del proceso de resolución.
+
+Finalmente, esta implementación reafirma la potencia y adaptabilidad del lenguaje ensamblador RISC-V para resolver problemas complejos mediante estructuras algorítmicas clásicas como la recursividad. Esta experiencia me ha brindado un entendimiento profundo no solo de la arquitectura y organización de las computadoras, sino también de las técnicas avanzadas de optimización en ensamblador, habilidades que resultarán esenciales para futuros proyectos en el área de sistemas embebidos y programación de bajo nivel.
+
 
 <a id="bibliografia"></a>
 
@@ -511,6 +519,8 @@ endCode:
 > - Jim Ledin. (2020). *Modern Computer Architecture and Organization : Learn X86, ARM, and RISC-V Architectures and the Design of Smartphones, PCs, and Cloud Servers.* Packt Publishing.
 >
 > - Patterson, D.A.; Hennessy, J. *Computer Organization and Design: The Hardware/Software Interface RISC-V Edition*, Morgan Kaufman, 2ª edición. 2020.
+>
+> - Er, M. C. (1984). *On the complexity of recursion in problem-solving.* International Journal of Man-Machine Studies, 20(6), 537-544.
 
 <a id="vinculos-al-codigo-fuente"></a>
 
