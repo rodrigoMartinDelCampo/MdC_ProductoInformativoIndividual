@@ -26,7 +26,7 @@
 4. [Capítulo 2](#capitulo-2)
    - [Implementación de algoritmo de solución de las Torres de Hanoi en lenguaje ensamblador para arquitectura RISC-V (Proceso de investigación, fuentes, cómo es una implementación recursiva, por qué vamos a hacer una implementación recursiva para su solución, etc.)](#implementacion-de-algoritmo-de-solucion-de-las-torres-de-hanoi-en-lenguaje-ensamblador-para-arquitectura-risc-v)
 5. [Capítulo 3](#capitulo-3)
-   - [Análisis y breakdown del código generado y comparación con código en C](#analisis-y-breakdown-del-codigo-generado-y-comparacion-con-codigo-en-c)
+   - [Análisis y breakdown del código implementado y comparación con código en C](#analisis-y-breakdown-del-codigo-generado-y-comparacion-con-codigo-en-c)
 6. [Capítulo 4](#capitulo-4)
    - [Análisis matemático de los resultados cuantitativos de la implementación del algoritmo](#analisis-matematico-de-los-resultados-cuantitativos-de-la-implementacion-del-algoritmo)
 7. [Conclusiones](#conclusiones)
@@ -71,7 +71,7 @@ Este trabajo pretende cubrir, aunque de manera superficial, las bases y consider
 
 <a id="que-es-el-problema-de-las-torres-de-hanoi-y-como-se-pueden-implementar-algoritmos-para-su-solucion"></a>
 
-### 1.1 Qué es el problema de las Torres de Hanoi y cómo se pueden implementar algoritmos para su solución
+### 1.1 Qué es el Problema de las Torres de Hanoi y Cómo se Pueden Implementar Algoritmos para su Solución
 ### ¿Qué es la Torre de Hanoi?
 
 La **Torre de Hanoi** es un rompecabezas clásico que consta de tres estacas y una serie de discos de diferentes tamaños que pueden colocarse en estas estacas. Como lo explican Mataix-Cols y Bartres-Faz:
@@ -185,7 +185,7 @@ RISC-V se beneficia de estos tipos de instrucciones, que simplifican el diseño 
 
 <a id="implementacion-de-algoritmo-de-solucion-de-las-torres-de-hanoi-en-lenguaje-ensamblador-para-arquitectura-risc-v"></a>
 
-### Implementación de algoritmo de solución de las Torres de Hanoi en lenguaje ensamblador para arquitectura RISC-V
+### Implementación de Algoritmo de Solución de las Torres de Hanoi en Lenguaje Ensamblador para Arquitectura RISC-V
 
 ### Proceso de Investigación y Fuentes
 
@@ -225,7 +225,7 @@ En resumen, esta implementación del algoritmo de las Torres de Hanoi en lenguaj
 
 <a id="analisis-y-breakdown-del-codigo-generado-y-comparacion-con-codigo-en-c"></a>
 
-### Análisis y breakdown del código generado y comparación con código en C
+### Análisis y Breakdown del Código Implementado y Comparación con Código en C
 
 
 ### Código en C
@@ -517,7 +517,7 @@ endCode:
 
 <a id="analisis-matematico-de-los-resultados-cuantitativos-de-la-implementacion-del-algoritmo"></a>
 
-### Análisis matemático de los resultados cuantitativos de la implementación del algoritmo
+### Análisis Matemático de los Resultados Cuantitativos de la Implementación del Algoritmo
 
 Para evaluar la eficiencia de mi implementación del algoritmo de las Torres de Hanoi en lenguaje ensamblador RISC-V, se tomaron en cuenta tres aspectos cuantitativos: el conteo de instrucciones (Instruction Counter), el tiempo de ejecución, y el número de movimientos de disco realizados, determinado por la fórmula del algoritmo. A continuación, se detallan estos resultados específicos para un caso de 15 discos.
 
@@ -575,7 +575,7 @@ El análisis de estos datos cuantitativos revela que mi implementación del algo
 
 <a id="por-que-la-implementacion-del-algoritmo-es-la-ideal"></a>
 
-### Por qué la implementación del algoritmo es la ideal
+### ¿Por Qué la Implementación del Algoritmo es la Ideal?
 
 En base a los resultados numéricos obtenidos, junto con la investigación realizada y la comprensión adquirida a través de las clases y diversos recursos, puedo concluir que la implementación alcanzada para resolver el problema de las Torres de Hanoi de manera recursiva en lenguaje ensamblador RISC-V es eficiente y funcional. La mayor parte de la información consultada fue obtenida en la biblioteca de ITESO, en su colección de revistas y libros digitales, los cuales fueron fundamentales para profundizar en temas de organización y arquitectura de computadoras.
 
