@@ -71,7 +71,7 @@ Este trabajo pretende cubrir, aunque de manera superficial, las bases y consider
 
 <a id="que-es-el-problema-de-las-torres-de-hanoi-y-como-se-pueden-implementar-algoritmos-para-su-solucion"></a>
 
-### 1.1 Qué es el Problema de las Torres de Hanoi y Cómo se Pueden Implementar Algoritmos para su Solución
+### 1.1 ¿Qué es el Problema de las Torres de Hanoi y Cómo se Pueden Implementar Algoritmos para su Solución?
 ### ¿Qué es la Torre de Hanoi?
 
 La **Torre de Hanoi** es un rompecabezas clásico que consta de tres estacas y una serie de discos de diferentes tamaños que pueden colocarse en estas estacas. Como lo explican Mataix-Cols y Bartres-Faz:
