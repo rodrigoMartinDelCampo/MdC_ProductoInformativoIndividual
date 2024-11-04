@@ -518,7 +518,56 @@ endCode:
 <a id="analisis-matematico-de-los-resultados-cuantitativos-de-la-implementacion-del-algoritmo"></a>
 
 ### Análisis matemático de los resultados cuantitativos de la implementación del algoritmo
-(Tu contenido aquí)
+
+Para evaluar la eficiencia de mi implementación del algoritmo de las Torres de Hanoi en lenguaje ensamblador RISC-V, se tomaron en cuenta tres aspectos cuantitativos: el conteo de instrucciones (Instruction Counter), el tiempo de ejecución, y el número de movimientos de disco realizados, determinado por la fórmula del algoritmo. A continuación, se detallan estos resultados específicos para un caso de 15 discos.
+
+### 1. Conteo de Instrucciones (Instruction Counter)
+
+Mediante el *Instruction Counter* del ensamblador, se obtuvo el número total de instrucciones ejecutadas para resolver el problema de las Torres de Hanoi con 15 discos. Este conteo proporciona una medida del esfuerzo computacional, y en este caso, mi código logró una ejecución de aproximadamente 650,000 instrucciones para el caso de 15 discos. Esta métrica fue obtenida después de implementar técnicas de optimización como el *instruction pipelining* y la minimización de operaciones en el stack, reduciendo las instrucciones `sw` y `lw` a las estrictamente necesarias.
+
+### 2. Tiempo de Ejecución
+
+El tiempo de ejecución de código es otro dato fundamental. Aunque la duración exacta puede variar dependiendo del hardware y la carga del sistema, la optimización de instrucciones implica una menor latencia en cada operación. En el caso de este proyecto, los tiempos de ejecución se redujeron significativamente en comparación con otras implementaciones del curso.
+
+### 3. Movimientos de Disco Realizados
+
+El número de movimientos de disco necesarios para resolver el problema de las Torres de Hanoi con `n` discos se calcula mediante la fórmula \(2^n - 1\). Para el caso de 15 discos, esto resulta en 16,384 movimientos. Estos movimientos fueron correctamente gestionados por el código en ensamblador, manteniendo la consistencia de los datos en el stack y asegurando que cada disco se mueva de manera óptima a su posición final.
+
+### Evaluación de Eficiencia del Código
+
+Estos datos cuantitativos respaldan la eficiencia de mi implementación, ya que demuestran una reducción en el conteo de instrucciones y en el tiempo de ejecución en comparación con las otras implementaciones del curso. A continuación, incluiré gráficas que reflejan estos resultados.
+
+### Comparación con Otros Equipos del Curso
+
+En promedio, el resto de los equipos del curso obtuvo un conteo de instrucciones de alrededor de 7425 para el caso de 8 discos. En contraste, mi implementación logró ejecutar la solución en 5163 instrucciones. Esta diferencia de aproximadamente 30% en el conteo de instrucciones representa una mejora significativa en la eficiencia del código, especialmente cuando consideramos la tendencia de crecimiento exponencial del problema.
+
+Para ilustrar esta comparación, mostraré dos imágenes del Instruction Counter, una correspondiente al promedio del curso y otra a mi implementación. Esta diferencia de rendimiento es aún más evidente cuando se examinan casos de mayor complejidad, como el de 15 discos. <br>
+
+![foto-ic-promedio](assets/img/IC_StatsProm.jpg)
+
+*Instrucciones para 8 discos promedio del curso.* <br><br>
+
+![foto-ic-mine](assets/img/IC_Stats.png)
+
+*Instrucciones para 8 discos de mi código.*
+
+### Análisis Exponencial del Conteo de Instrucciones
+
+La gráfica de crecimiento exponencial en el conteo de instrucciones refleja claramente la diferencia en eficiencia entre el promedio del curso y mi implementación. Al incrementar el número de discos hasta 15, el promedio de las implementaciones del curso se aproxima al millón de instrucciones ejecutadas. En cambio, mi código optimizado reduce este número a aproximadamente 650,000 instrucciones, logrando un ahorro considerable en el tiempo de ejecución y en la carga computacional.
+
+Esta diferencia no solo implica una mejora en la velocidad, sino también en el uso de recursos, lo que podría traducirse en menor consumo de energía y mayor capacidad de respuesta en sistemas embebidos o de bajo consumo. <br>
+
+![foto-exp-promedio](assets/img/exp_prom.jpg)
+
+*Gráfica de complejidad en instrucciones para 15 discos promedio del curso.* <br><br>
+
+![foto-exp-mine](assets/img/exp.png)
+
+*Gráfica de complejidad en instrucciones para 15 discos de mi código.*
+
+### Análisis Profundo de los Datos Cuantitativos y su Importancia
+
+El análisis de estos datos cuantitativos revela que mi implementación del algoritmo de las Torres de Hanoi en RISC-V es notablemente eficiente. La reducción en el Instruction Counter, gracias a la optimización de instrucciones, indica que el código es menos intensivo en operaciones. Esto es esencial para arquitecturas como RISC-V, donde la eficiencia en el uso de cada instrucción es clave para maximizar el rendimiento. La reducción en el número de movimientos y la menor latencia también reflejan que el código está diseñado de manera óptima, evitando redundancias y ejecutando solo las operaciones esenciales.
 
 <a id="conclusiones"></a>
 
