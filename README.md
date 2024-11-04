@@ -77,20 +77,107 @@ Este trabajo pretende cubrir, aunque de manera superficial, las bases y consider
 La **Torre de Hanoi** es un rompecabezas clásico que consta de tres estacas y una serie de discos de diferentes tamaños que pueden colocarse en estas estacas. Como lo explican Mataix-Cols y Bartres-Faz:
 
 > "El rompecabezas de la Torre de Hanoi consta de tres estacas y un número de discos de tamaños graduados que encajan en las estacas. Los discos se disponen inicialmente en la estaca de inicio más a la izquierda y se requiere que los participantes muevan los discos desde la estaca de inicio y los rearmen en el orden original en la estaca más a la derecha, respetando las siguientes dos reglas: (a) Solo se puede mover un disco a la vez, y (b) no se puede colocar un disco más grande sobre un disco más pequeño. Se puede usar cualquier número de discos; el número mínimo de movimientos para una solución es \(2^n - 1\), donde \(n\) es el número de discos."  
-> — *Mataix-Cols, D., & Bartres-Faz, D. (2002). Is the Use of the Wooden and Computerized Versions of the Tower of Hanoi Puzzle Equivalent? Applied Neuropsychology, 9(2), 117–120.*  
-> [https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8](https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8)
+> — *Mataix-Cols, D., & Bartres-Faz, D. (2002). Is the Use of the Wooden and Computerized Versions of the Tower of Hanoi Puzzle Equivalent? Applied Neuropsychology, 9(2), 117–120.* [https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8](https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8)
 
-Tomando en cuenta que lo que describen Mataix-Cols y Bartres-Faz, es en escencia un algoritmo, a continuación se muestra una imagen que facilita la comprensión de éste así como de sus pasos y restricciones para un caso en el que se trabaja con 3 discos:
+Tomando en cuenta que lo que describen Mataix-Cols y Bartres-Faz, es en escencia un algoritmo, a continuación se muestra una imagen que facilita la comprensión de éste así como de sus pasos y restricciones para un caso en el que se trabaja con 3 discos: <br><br>
 
 ![foto-hanoi](assets/img/tower-of-hanoi.png)
 
 *Program for Tower of Hanoi Algorithm. GeeksforGeeks.*
 
+### Aplicaciones de la Torre de Hanoi
+
+La Torre de Hanoi es un rompecabezas ampliamente utilizado en distintas áreas:
+
+1. **Psicología**: Se emplea en estudios cognitivos para evaluar la resolución de problemas y las habilidades de planificación de los participantes. Este rompecabezas requiere mantener una serie de pasos en mente, lo cual ayuda a los investigadores a analizar la memoria de trabajo y la capacidad de planificación en los participantes.
+
+2. **Pedagogía**: En el ámbito educativo, la Torre de Hanoi ayuda a enseñar conceptos de lógica, secuencia y paciencia a los estudiantes. A través de este rompecabezas, los estudiantes desarrollan habilidades de pensamiento crítico y una comprensión más profunda de los procesos paso a paso necesarios para resolver problemas complejos.
+
+3. **Algoritmia**: Desde la perspectiva de la computación, el rompecabezas de la Torre de Hanoi ilustra conceptos fundamentales en algoritmos y estructuras de datos, específicamente el uso de algoritmos recursivos. Este rompecabezas se convierte en una excelente herramienta para enseñar recursión, un tema que resulta esencial en muchas aplicaciones de programación.
+
+Como es claro, en este informe me enfocaré unicamente en la solución y aplicación del problema de las torres de Hanoi en el ámbito algorítmico.
+
+Atkinson (1982) menciona que, aunque el problema se suele enseñar con una solución recursiva debido a su claridad y simplicidad, también existen soluciones iterativas. Estos algoritmos iterativos no son necesariamente más complejos que sus contrapartes recursivas. En su artículo *The Cyclic Towers of Hanoi*, Atkinson explica que, en una solución iterativa, en cada movimiento impar se mueve el disco más pequeño en una dirección fija (por ejemplo, en sentido horario), mientras que en los movimientos pares se realiza el único movimiento posible con un disco más grande. Esta solución cíclica permite resolver el problema de forma eficiente sin recurrencia, lo que puede ser ventajoso en ciertos contextos de programación.
+
+### Comparación entre Algoritmos Recursivos e Iterativos
+
+| Característica                | Algoritmo Recursivo                           | Algoritmo Iterativo                                    |
+|-------------------------------|-----------------------------------------------|-------------------------------------------------------|
+| **Definición**                | Divide el problema en subproblemas hasta llegar a una solución base. | Usa una secuencia de pasos cíclicos sin división en subproblemas. |
+| **Simplicidad**               | Más sencillo de entender y de implementar en código. | Requiere un control de flujo más explícito (como bucles y condiciones). |
+| **Eficiencia de Memoria**     | Puede consumir mucha memoria en pilas de llamadas, especialmente para valores altos de \( n \). | Menor consumo de memoria al evitar llamadas recursivas. |
+| **Aplicaciones en Enseñanza** | Útil para enseñar el concepto de recursión en programación. | Útil para mostrar alternativas a la recursión en algoritmos de solución. |
+| **Implementación Típica**     | Implementación directa en lenguajes que soportan recursión. | Requiere una lógica más elaborada de control de movimientos. |
+
+Ambos enfoques tienen sus ventajas: el recursivo es conciso y claro, ideal para aprender recursión, mientras que el iterativo optimiza el uso de memoria y puede ser más adecuado para valores altos de \( n \). Para este informe como ya he mencionado, desarrollaré la solución recursiva del problema. A partir de estos conceptos y del algoritmo descrito por Mataix-Cols desarrollaré el código necesario en lenguaje ensamblador de arquitectura RISC-V.
+
+
 
 <a id="arquitectura-risc-v-y-su-isa-caracteristicas-etc"></a>
 
 ### 1.2 Arquitectura RISC-V y su ISA (características, etc.)
-(Tu contenido aquí)
+
+### Descripción de RISC-V
+
+**RISC-V** es una arquitectura de conjunto de instrucciones (ISA, por sus siglas en inglés) de código abierto basada en la filosofía de computación de conjunto reducido de instrucciones (Reduced Instruction Set Computer). A diferencia de otras ISA propietarias, RISC-V está diseñada para ser modular, simple y libre de regalías, permitiendo a desarrolladores e investigadores utilizar, modificar y extender la arquitectura sin restricciones legales o de propiedad intelectual.
+
+#### Características Principales de RISC-V
+
+1. **Código Abierto y Modularidad**: RISC-V se destaca por su naturaleza abierta, lo que permite que cualquiera pueda implementar, modificar o extender la arquitectura. Además, se organiza en un conjunto de extensiones modulares, lo cual facilita su adaptación a distintas necesidades, desde sistemas embebidos hasta supercomputadoras.
+
+2. **Conjunto de Instrucciones Base y Extensiones**: RISC-V incluye un conjunto de instrucciones base, que representa las operaciones esenciales, y una serie de extensiones opcionales (como extensiones de punto flotante y de multiplicación y división), lo cual proporciona flexibilidad y personalización. Estas extensiones modulares están identificadas por letras como “M” (multiplicación/división), “F” (punto flotante de precisión simple), “D” (doble precisión), y “C” (instrucciones compactas), entre otras.
+
+3. **Simplicidad de Diseño**: La ISA de RISC-V está diseñada para ser simple y fácil de implementar en hardware. Al centrarse en la eficiencia y la simplicidad, RISC-V facilita la implementación de sistemas con menores requerimientos de energía y coste, ideales para aplicaciones embebidas o móviles.
+
+4. **Compatibilidad con Diversos Niveles de Privilegio**: RISC-V permite la configuración de sistemas con diferentes niveles de privilegio (como usuario y supervisor), haciéndola adecuada tanto para sistemas operativos de propósito general como para sistemas de nivel embebido. Esta característica la hace atractiva para diseñadores de sistemas que requieren control detallado sobre los privilegios de acceso.
+
+### Tipos de Instrucciones en RISC-V
+
+En RISC-V, las instrucciones se clasifican en diferentes tipos según su formato y funcionalidad. Los principales tipos de instrucciones de acuerdo con el libro *Computer Organization and Design: The Hardware/Software Interface RISC-V Edition* son los siguientes:
+
+1. **Instrucciones Tipo R**:
+   - Se utilizan para operaciones aritméticas y lógicas entre registros.
+   - Incluyen operaciones como `ADD`, `SUB`, `AND`, `OR`, `XOR`, `SLL` (shift left logical), y `SRL` (shift right logical).
+   - Formato de instrucción: contiene tres registros (rs1, rs2, y rd) y un código de operación (opcode).
+
+2. **Instrucciones Tipo I**:
+   - Utilizadas para operaciones de carga desde memoria, aritméticas inmediatas y operaciones de lectura de estado del sistema.
+   - Ejemplos de instrucciones incluyen `ADDI` (suma inmediata), `LW` (carga de palabra), y `JALR` (jump and link register).
+   - Formato de instrucción: usa un registro fuente (rs1), un registro de destino (rd), y un valor inmediato de 12 bits.
+
+3. **Instrucciones Tipo S**:
+   - Estas instrucciones permiten almacenar datos en memoria.
+   - Ejemplos incluyen `SW` (store word) y `SB` (store byte).
+   - Formato de instrucción: utiliza dos registros fuente (rs1 y rs2) y un valor inmediato dividido en dos partes, que se usa para calcular la dirección en memoria.
+
+4. **Instrucciones Tipo B**:
+   - Diseñadas para realizar ramas condicionales, permitiendo el salto en el flujo de ejecución.
+   - Ejemplos son `BEQ` (branch if equal), `BNE` (branch if not equal), `BLT` (branch if less than), y `BGE` (branch if greater than or equal).
+   - Formato de instrucción: emplea dos registros fuente (rs1 y rs2) y un desplazamiento inmediato para calcular la dirección de destino.
+
+5. **Instrucciones Tipo U**:
+   - Utilizadas para manipulación de direcciones y constantes de 32 bits en operaciones aritméticas.
+   - Ejemplos incluyen `LUI` (load upper immediate) y `AUIPC` (add upper immediate to PC).
+   - Formato de instrucción: contiene un registro de destino (rd) y un valor inmediato de 20 bits.
+
+6. **Instrucciones Tipo J**:
+   - Diseñadas para saltos incondicionales, permitiendo cambiar el flujo de ejecución a una dirección específica.
+   - Ejemplo principal: `JAL` (jump and link).
+   - Formato de instrucción: incluye un registro de destino (rd) y un valor inmediato de 20 bits que representa el desplazamiento para calcular la dirección de salto.
+
+### Resumen de Tipos de Instrucción
+
+| Tipo de Instrucción | Propósito                                   | Ejemplos                     |
+|---------------------|---------------------------------------------|------------------------------|
+| **R**               | Aritmética y lógica entre registros         | `ADD`, `SUB`, `AND`, `OR`    |
+| **I**               | Aritmética inmediata, carga de memoria      | `ADDI`, `LW`, `JALR`         |
+| **S**               | Almacenamiento en memoria                  | `SW`, `SB`                   |
+| **B**               | Saltos condicionales                       | `BEQ`, `BNE`, `BLT`, `BGE`   |
+| **U**               | Manipulación de direcciones y constantes    | `LUI`, `AUIPC`               |
+| **J**               | Saltos incondicionales                     | `JAL`                        |
+
+RISC-V se beneficia de estos tipos de instrucciones, que simplifican el diseño del hardware y optimizan la ejecución de instrucciones al reducir la cantidad de formatos necesarios. Es de **suma importancia** identificar cada tipo de instrucción para poder hacer la implementación del código que desarrollaré en los capítulos siguientes, pues para realizar una implementación recursiva óptima, necesitamos reducir en medida de lo posible la cantidad de instrucciones.
+
 
 <a id="capitulo-2"></a>
 
@@ -418,6 +505,12 @@ endCode:
 > - *Mataix-Cols, D., & Bartres-Faz, D. (2002). Is the Use of the Wooden and Computerized Versions of the Tower of Hanoi Puzzle Equivalent? Applied Neuropsychology, 9(2), 117–120.* [https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8](https://doi-org.ezproxy.iteso.mx/10.1207/S15324826AN0902_8)
 > 
 > - GeeksforGeeks. (2024, 9 mayo). *Program for Tower of Hanoi Algorithm.* GeeksforGeeks. [https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/](https://www.geeksforgeeks.org/c-program-for-tower-of-hanoi/)
+>
+> - Atkinson, M. D. (1981). *The cyclic towers of Hanoi.* Information Processing Letters, 13(3), 118-119
+>
+> - Jim Ledin. (2020). *Modern Computer Architecture and Organization : Learn X86, ARM, and RISC-V Architectures and the Design of Smartphones, PCs, and Cloud Servers.* Packt Publishing.
+>
+> - Patterson, D.A.; Hennessy, J. *Computer Organization and Design: The Hardware/Software Interface RISC-V Edition*, Morgan Kaufman, 2ª edición. 2020.
 
 <a id="vinculos-al-codigo-fuente"></a>
 
